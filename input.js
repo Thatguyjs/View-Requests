@@ -5,6 +5,7 @@ let Main = {
 	_callback: new Function(),
 	paused: false,
 
+
 	allowInput: function(allowed) {
 		Main.paused = allowed;
 		allowed ? process.stdin.resume() : process.stdin.pause();
@@ -20,6 +21,11 @@ let Main = {
 	onInput: function(callback) {
 		Main._callback = callback;
 		if(!Main.paused) Main.allowInput(true);
+	},
+
+
+	write: function(text) {
+		process.stdout.write(text);
 	}
 
 };

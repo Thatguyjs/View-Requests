@@ -5,7 +5,7 @@ let Main = {
 
 	_write: function(path, data, options) {
 		if(options) {
-
+			// TODO
 		}
 
 		return new Promise((resolve, reject) => {

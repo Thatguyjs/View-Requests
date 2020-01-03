@@ -39,8 +39,10 @@ function handleRequest(url, promise, saveId) {
 		let saveObject = { from: url };
 
 		if(response.statusCode === 302 || response.statusCode === 301) {
-			doRequest(response.headers['location'], saveId + 1);
+			console.log("Redirect to:", response.headers['location']);
 			saveObject.to = response.headers['location'];
+
+			doRequest(response.headers['location'], saveId + 1);
 		}
 
 		let data = "";
@@ -76,6 +78,7 @@ function saveRequest(id, url, data) {
 
 
 Input.allowInput(true);
+Input.write("Website: ");
 
 Input.onInput((data) => {
 	doRequest(data);
